@@ -17,6 +17,11 @@ h2, h3, h4, h5 {
   font-weight: 100 !important;
 }
 
+small {
+  opacity: 0.35;
+  font-weight: 100;
+}
+
 svg {
   font-size: 4rem;
 }
@@ -154,6 +159,12 @@ input:checked + .theslider:before {
   transform: translateX(26px);
 }
 
+/* CARD */
+
+.card-text {
+  max-height: 172px;
+  overflow-y: hidden;
+}
 
 @media screen and (max-width: 991px) {
   .hide-mobile { 

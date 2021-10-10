@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SwiperSlider from '../components/SwiperSlider/SwiperSlider';
 import UnsplashSearch from '../components/UnsplashSearch/UnsplashSearch';
+import Movies from '../components/Movies/Movies';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FaNodeJs, FaReact, FaAngular, FaGitAlt, FaGithub, FaHtml5, FaCss3Alt, FaJs, FaSass, FaTerminal } from 'react-icons/fa';
 import { SiTypescript } from 'react-icons/si';
@@ -11,7 +12,7 @@ function Home() {
   return (
     <>
       <SwiperSlider />
-      <Container fluid className="shadow-lg pb-5 dark">
+      <Container id="about" fluid className="shadow-lg pb-5 dark">
         <Container>
           <Row className="pt-5">
             <Col className="py-5">
@@ -22,12 +23,12 @@ function Home() {
           </Row>
         </Container>
       </Container>
-      <Container fluid className="py-5 p-1-mobile really-dark">
+      <Container id="skills" fluid className="py-5 p-1-mobile really-dark">
         <Container className="py-5 p-1-mobile">
           <Row>
             <Col lg={2} xs={3} className="text-left">
               <img className="mb-2 hal-9000" src={Hal} alt="Hal 9000" />
-              <p>{`> `}{<WriteText speed={250} text="Hello Dave." />}</p>
+              <p>{`> `}{<WriteText speed={150} text="Hello Dave." />}</p>
             </Col>
             <Col lg={1} className="hide-mobile"></Col>
             <Col lg={9} xs={9} className="text-left">
@@ -68,16 +69,28 @@ function Home() {
           </Row>
         </Container>
       </Container>
-      <Container fluid className="shadow-lg pb-5 dark">
+      <Container id="slider" fluid className="shadow-lg pb-5 dark">
         <Container>
           <Row className="pt-5">
-            <Col className="text-center mt-5">
-              <h1>Unsplash Swiper Slider</h1>
+            <Col className="text-center mt-5 mb-1">
+              <h5>Unsplash API &amp; SwiperJS</h5>
+              <h1>Get Slider</h1>
               <p>Type in a word in the search field and it will create a swiper slider with 10 images from Unsplash API.</p>
             </Col>
           </Row>
         </Container>
         <UnsplashSearch />
+      </Container>
+      <Container id="movies" fluid className="shadow-lg pb-5 p-1-mobile really-dark">
+        <Container className="p-1-mobile">
+          <Row className="pt-5">
+            <Col className="py-5 p-1-mobile">
+              <h5>THEMOVIEDB</h5>
+              <h1>SEARCH FOR A MOVIE</h1>
+              <Movies />
+            </Col>
+          </Row>
+        </Container>
       </Container>
   </>
   );
