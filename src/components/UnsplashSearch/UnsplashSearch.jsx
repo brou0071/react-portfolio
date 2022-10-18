@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 const UnsplashSearch = () => {
   SwiperCore.use([Autoplay]);
-  const [query, setQuery] = useState('space')
+  const [query, setQuery] = useState('travel')
   const [photos, setPhotos] = useState([])
   const [page, setPage] = useState(0)
   const accessKey = `5_8a6_v2hZEEjkn-It2kGO7IVk7GtMAvkpRIu2JZRSE`
@@ -66,7 +66,7 @@ const UnsplashSearch = () => {
                 id="inlineFormInput"
                 placeholder="Search..."
                 type="text"
-                onChange={(e) => setQuery(e.target.value)} 
+                onChange={(e) => setQuery(e.target.value)}
               />
             </Col>
             <Col xs={4}>

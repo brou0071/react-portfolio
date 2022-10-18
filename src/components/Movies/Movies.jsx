@@ -4,7 +4,7 @@ import { Row, Col, Button, Card, Form } from 'react-bootstrap';
 const Movies = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState('terminator');
+  const [query, setQuery] = useState('lethal weapon');
   const imgPath = 'https://image.tmdb.org/t/p/w1280';
 
   const HandleClick = (e) => {
@@ -23,6 +23,7 @@ const Movies = () => {
       setMovies((prevResult) => {
         return [...prevResult, ...data.results]
       })
+
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -46,9 +47,9 @@ const Movies = () => {
               <Form.Control
                 className="mb-2"
                 id="query"
-                placeholder="terminator"
+                placeholder="Search..."
                 type="text"
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => {setQuery(e.target.value);FetchMovies();}}
               />
               <Button type="submit" className="mb-5 mt-2" variant="primary" onClick={HandleClick}>
                 Get Movies
@@ -59,7 +60,7 @@ const Movies = () => {
       </Row>
       <Row className="g-4">
         {loading ? <h2>Loading...</h2> :
-          movies.slice(0, 8).map((movie, i) => (
+          movies.slice(0, 4).map((movie, i) => (
             <Col xs={12} sm={6} md={4} xl={3} key={i}>
               <Card className="bg-dark text-white">
                 <Card.Img variant="top" src={movie.poster_path && `${imgPath}${movie.poster_path}`} />
@@ -70,6 +71,7 @@ const Movies = () => {
                   <Card.Text>
                     {movie.overview}
                   </Card.Text>
+                  <p>...</p>
                   <Card.Footer>
                     <small>Release: {movie.release_date}</small>
                   </Card.Footer>

@@ -26,12 +26,12 @@ const WriteText = (props) => {
     return () => clearTimeout(writer);
   }, [text, speed, index])
 
-  // Reset content and index
+  // Reset content and index every 15 seconds
   useEffect(() => {
     let resetter = setInterval(() => {
       setContent('');
       setIndex(0);
-    }, 1000 * 15);
+    }, 15000);
     return () => clearInterval(resetter);
   }, [])
 

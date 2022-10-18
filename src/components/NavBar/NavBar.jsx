@@ -1,14 +1,26 @@
+import { useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap'
+import { IconContext } from 'react-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Time from "../Time/Time";
-import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
+import {
+  FaSun,
+  FaMoon
+} from "react-icons/fa";
 
 const NavBar = () => {
+  const [theme, setTheme] = useState(true);
+
+  const HandleChange = (e) => {
+    setTheme(!e.target.checked);
+    localStorage.setItem('LOCAL_THEME', theme ? 'light' : 'dark');
+  }
+
   return (
-    <Navbar className="px-3" bg="dark" variant="dark" fixed="top" expand="lg">
+    <Navbar className="px-3" bg={theme ? 'light' : 'dark'} variant={theme ? 'light' : 'dark'} fixed="top" expand="lg">
       <Navbar.Brand>
         <Nav.Link href="/">
-          <div style={{ color: 'white', fontSize: '1.5rem', transform: 'translateY(2px)' }}>
+          <div style={{ color: theme ? 'black' : 'white', fontSize: '1.5rem', transform: 'translateY(2px)' }}>
             <h1 style={{ fontWeight: 'bold' }}>{`Dave Brousseau`}</h1>
           </div>
         </Nav.Link>
@@ -22,11 +34,17 @@ const NavBar = () => {
           <Nav.Link className="clear" href="#movies"><span>Movies</span></Nav.Link>
         </Nav>
         <Nav>
-          <ToggleSwitch />
           <Nav.Link style={{ textAlign: 'right' }} disabled>
-            <p className="mt-3 px-4" style={{ color: '#ffffff' }}><Time /></p>
+            <p className="mt-3" style={{ color: theme ? 'black' : 'white' }}><Time /></p>
           </Nav.Link>
+          <label className="px-3 mt-4 mx-3 switch">
+            <input onChange={HandleChange} type="checkbox" />
+            <span className="theslider"></span>
+          </label>
         </Nav>
+        <IconContext.Provider value={{ size: '0.4em', color: theme ? '#212121' : 'white' }}>
+          {theme ? <FaSun /> : <FaMoon />}
+        </IconContext.Provider>
       </Navbar.Collapse>
     </Navbar>
   )

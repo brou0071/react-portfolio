@@ -5,8 +5,9 @@ import Movies from '../components/Movies/Movies';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FaNodeJs, FaReact, FaAngular, FaGitAlt, FaGithub, FaHtml5, FaCss3Alt, FaJs, FaSass, FaTerminal } from 'react-icons/fa';
 import { SiTypescript } from 'react-icons/si';
-import Hal from '../../src/images/hal_9000.png';
+import Hal from '../../src/assets/hal_9000.png';
 import WriteText from '../components/WriteText/WriteText';
+import SearchDropdown from '../components/SearchDropdown/SearchDropdown';
 
 function Home() {
   return (
@@ -34,6 +35,7 @@ function Home() {
             <Col lg={9} xs={9} className="text-left">
               <h5>SKILLS &amp; TOOLS</h5>
               <h1>MY TOOLBOX &amp; THINGS I CAN DO</h1>
+              <SearchDropdown />
               <Row>
                 <Col>
                   <ul className="py-3">

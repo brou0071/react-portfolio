@@ -26,14 +26,6 @@ svg {
   font-size: 4rem;
 }
 
-.clear {
-  color: rgba(255, 255, 255, 1) !important;
-}
-
-.clear span {
-  opacity: 0.5;
-}
-
 .clear:hover span {
   opacity: 1;
 }
